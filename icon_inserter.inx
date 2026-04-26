@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="https://inkscape.org/namespaces/inkscape"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="https://inkscape.org/namespaces/inkscape https://inkscape.org/schema/inkscape-extension.xsd">
+    <name>Icon Inserter</name>
+    <id>org.inkscape.extensions.icon_inserter</id>
+    <effect>
+        <object-type>path</object-type>
+        <object-type>rect</object-type>
+        <object-type>circle</object-type>
+        <object-type>ellipse</object-type>
+        <effects-menu>
+            <submenu id="Extensions" />
+            <submenu id="Custom" />
+        </effects-menu>
+    </effect>
+    <script>icon_inserter.py</script>
+    <dialog>icon_inserter.ui</dialog>
+</inkscape-extension>
