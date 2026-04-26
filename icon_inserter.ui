@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    width="400" height="500">
+    
+    <style type="text/css"><![CDATA[
+        body { font-family: sans-serif; padding: 10px; }
+        .group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="number"], select { 
+            width: 100%; 
+            padding: 5px; 
+            box-sizing: border-box;
+        }
+        input[type="number"] { width: 80px; }
+        .row { display: flex; gap: 10px; align-items: center; margin-bottom: 5px; }
+        .icon-preview { 
+            width: 100px; 
+            height: 100px; 
+            border: 1px solid #ccc; 
+            margin: 10px auto;
+            background: #f9f9f9;
+        }
+        button { 
+            padding: 8px 16px; 
+            background: #4CAF50; 
+            color: white; 
+            border: none; 
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover { background: #45a049; }
+    ]]></style>
+    
+    <body>
+        <h2>Icon Inserter</h2>
+        
+        <!-- Icon Selection -->
+        <div class="group">
+            <label for="icon-select">Select Icon:</label>
+            <select id="icon-path" name="icon-path">
+                <option value="">-- Choose an icon --</option>
+                <!-- Icons will be populated dynamically or predefined -->
+                <option value="icons/alert.svg">Alert Icon</option>
+                <option value="icons/info.svg">Info Icon</option>
+                <option value="icons/warning.svg">Warning Icon</option>
+                <option value="icons/success.svg">Success Icon</option>
+                <option value="icons/settings.svg">Settings Icon</option>
+            </select>
+        </div>
+        
+        <!-- Icon Preview -->
+        <div class="group">
+            <label>Preview:</label>
+            <div class="icon-preview" id="icon-preview">
+                <img src="" alt="Icon preview" style="width:100%; height:100%;" />
+            </div>
+        </div>
+        
+        <!-- Transform Controls -->
+        <div class="group">
+            <label>Transformation:</label>
+            
+            <div class="row">
+                <label for="scale-x" style="flex:1;">Scale X:</label>
+                <input type="number" id="scale-x" name="scale-x" value="1.0" step="0.1" min="0.1" />
+            </div>
+            
+            <div class="row">
+                <label for="scale-y" style="flex:1;">Scale Y:</label>
+                <input type="number" id="scale-y" name="scale-y" value="1.0" step="0.1" min="0.1" />
+            </div>
+            
+            <div class="row">
+                <label for="rotation" style="flex:1;">Rotation (°):</label>
+                <input type="number" id="rotation" name="rotation" value="0" step="15" min="-360" max="360" />
+            </div>
+        </div>
+        
+        <!-- Metadata -->
+        <div class="group">
+            <label for="metadata">Metadata:</label>
+            <input type="text" id="metadata" name="metadata" placeholder="Enter metadata string..." />
+        </div>
+        
+        <!-- Hidden tab field for inkscape -->
+        <input type="hidden" name="tab" value="main" />
+        
+        <!-- Action Buttons -->
+        <div class="group">
+            <button type="submit">Apply</button>
+        </div>
+    </body>
+    
+    <script type="text/javascript"><![CDATA[
+        // Update preview when icon selection changes
+        document.getElementById('icon-path').addEventListener('change', function() {
+            var preview = document.querySelector('#icon-preview img');
+            if (this.value) {
+                // For preview, we'd need to handle the path appropriately
+                // This is a simplified version
+                preview.src = this.value;
+            } else {
+                preview.src = '';
+            }
+        });
+    ]]></script>
+</ui>
